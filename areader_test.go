@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestA(t *testing.T) {
+func TestAEmitsThreeAs(t *testing.T) {
 	want := []byte("AAA")
 	got := make([]byte, 3)
 	var a areader.A
