@@ -1,9 +1,10 @@
 package areader_test
 
 import (
-	"areader"
 	"bytes"
 	"testing"
+
+	"github.com/gokatas/areader"
 )
 
 func TestAEmitsThreeAs(t *testing.T) {
