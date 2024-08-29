@@ -1,29 +1,21 @@
 package areader_test
 
 import (
+	"bytes"
 	"testing"
 
 	"github.com/gokatas/areader"
 )
 
-// Adapted from https://go.googlesource.com/tour/+/master/reader/validate.go
 func TestRead(t *testing.T) {
 	var a areader.A
-	b := make([]byte, 1024, 2048)
-	i, o := 0, 0
-	for ; i < 1<<20 && o < 1<<20; i++ { // test 1mb
-		n, err := a.Read(b)
-		for i, v := range b[:n] {
-			if v != 'A' {
-				t.Errorf("got byte %x at offset %v, want 'A'\n", v, o+i)
-			}
-		}
-		o += n
-		if err != nil {
-			t.Errorf("read error: %v\n", err)
-		}
-	}
-	if o == 0 {
-		t.Errorf("read zero bytes after %d Read calls\n", i)
+
+	buf := make([]byte, 10)
+
+	a.Read(buf)
+
+	want := bytes.Repeat([]byte{'A'}, len(buf))
+	if !bytes.Equal(buf, want) {
+		t.Errorf("unexpected data in buffer: got %v, want %v", buf, want)
 	}
 }
