@@ -9,9 +9,7 @@ import (
 
 func TestRead(t *testing.T) {
 	var a areader.A
-
 	buf := make([]byte, 10)
-
 	a.Read(buf)
 
 	want := bytes.Repeat([]byte{'A'}, len(buf))
