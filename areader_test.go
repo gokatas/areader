@@ -14,6 +14,6 @@ func TestRead(t *testing.T) {
 
 	want := bytes.Repeat([]byte{'A'}, len(buf))
 	if !bytes.Equal(buf, want) {
-		t.Errorf("unexpected data in buffer: got %v, want %v", buf, want)
+		t.Errorf("unexpected data: got %v, want %v", buf, want)
 	}
 }
