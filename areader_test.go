@@ -8,12 +8,13 @@ import (
 )
 
 func TestRead(t *testing.T) {
-	var a areader.A
-	buf := make([]byte, 10)
-	a.Read(buf)
+	want := bytes.Repeat([]byte{'A'}, 10)
 
-	want := bytes.Repeat([]byte{'A'}, len(buf))
-	if !bytes.Equal(buf, want) {
-		t.Errorf("unexpected data: got %v, want %v", buf, want)
+	var a areader.A
+	got := make([]byte, 10)
+	a.Read(got)
+
+	if !bytes.Equal(want, got) {
+		t.Errorf("want %v, got %v", want, got)
 	}
 }
