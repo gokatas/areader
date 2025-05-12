@@ -1,5 +1,6 @@
-// Package areader implements io.Reader interface with the A type. The A's Read
-// method reads up to len(p) bytes representing the ASCII character 'A' into p.
+// Package areader contains a custom type called A that satisfies the io.Reader
+// interface. The A's Read method reads len(p) bytes into p. Each byte that is
+// read represents the ASCII character 'A'.
 //
 // Adapted from https://tour.golang.org/methods/22.
 package areader
